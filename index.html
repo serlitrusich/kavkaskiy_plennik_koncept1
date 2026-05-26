@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Свобода в рассказе «Кавказский пленник»</title>
+  <style>
+    :root{
+      --bg:#f5efe4;
+      --paper:#fffaf1;
+      --ink:#222018;
+      --muted:#6d6658;
+      --green:#2f5d50;
+      --green2:#46796a;
+      --sand:#d8bd8a;
+      --blue:#7f9aad;
+      --red:#b55343;
+      --ok:#dff1e7;
+      --bad:#fae2df;
+      --shadow:0 14px 35px rgba(50,41,25,.13);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(127,154,173,.28), transparent 30%),
+        linear-gradient(180deg, #e9ddc9 0%, var(--bg) 42%, #f7f0e5 100%);
+      color:var(--ink);
+      line-height:1.55;
+    }
+    .hero{
+      min-height:92vh;
+      padding:34px 18px 24px;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .mountains{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:310px;
+      opacity:.95;
+      pointer-events:none;
+    }
+    .mountains svg{width:100%;height:100%;display:block}
+    .hero-card{
+      position:relative;
+      z-index:2;
+      width:min(1060px, 100%);
+      display:grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .title-box, .quick-box, section, .task-card{
+      background:rgba(255,250,241,.86);
+      backdrop-filter: blur(10px);
+      border:1px solid rgba(47,93,80,.16);
+      box-shadow:var(--shadow);
+      border-radius:var(--radius);
+    }
+    .title-box{padding:34px}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(47,93,80,.1);
+      color:var(--green);
+      font-weight:700;
+      font-size:14px;
+      margin-bottom:18px;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:clamp(34px, 6vw, 68px);
+      line-height:.98;
+      letter-spacing:-.04em;
+    }
+    .subtitle{
+      font-size:clamp(17px, 2vw, 22px);
+      color:#453f33;
+      max-width:720px;
+      margin:0 0 22px;
+    }
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+    .pill{
+      padding:9px 12px;
+      border-radius:13px;
+      background:#fff7e8;
+      border:1px solid rgba(216,189,138,.7);
+      color:#554a36;
+      font-size:14px;
+      font-weight:650;
+    }
+    .quick-box{
+      padding:26px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:420px;
+    }
+    .concept-word{
+      background:linear-gradient(135deg, var(--green), #1f4038);
+      color:white;
+      border-radius:22px;
+      padding:24px;
+      min-height:190px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .concept-word small{opacity:.8;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+    .concept-word strong{font-size:48px;letter-spacing:-.05em;margin-top:4px}
+    .concept-word p{margin:8px 0 0;opacity:.92}
+    .start-btn, button{
+      border:0;
+      border-radius:16px;
+      background:var(--green);
+      color:#fff;
+      font-size:16px;
+      font-weight:800;
+      padding:14px 18px;
+      cursor:pointer;
+      transition:.18s ease;
+      box-shadow:0 10px 22px rgba(47,93,80,.18);
+    }
+    .start-btn:hover, button:hover{transform:translateY(-1px); background:#234b40}
+    .start-btn{display:inline-block;text-decoration:none;text-align:center;margin-top:18px}
+    nav{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(255,250,241,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(47,93,80,.13);
+      padding:10px 14px;
+      overflow-x:auto;
+      white-space:nowrap;
+    }
+    nav a{
+      color:var(--green);
+      text-decoration:none;
+      font-weight:800;
+      margin:0 10px;
+      font-size:14px;
+    }
+    main{width:min(1060px,100%); margin:0 auto; padding:34px 18px 80px}
+    section{padding:28px; margin:22px 0}
+    h2{font-size:clamp(26px, 4vw, 38px); line-height:1.05; margin:0 0 14px; letter-spacing:-.03em}
+    h3{font-size:21px; margin:22px 0 8px; color:var(--green)}
+    p{margin:10px 0}
+    .note{
+      border-left:5px solid var(--sand);
+      background:#fff5df;
+      padding:16px 18px;
+      border-radius:0 16px 16px 0;
+      color:#443a2a;
+      margin:16px 0;
+    }
+    .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+    .mini-card{
+      padding:18px;
+      border-radius:18px;
+      background:#fff7e8;
+      border:1px solid rgba(216,189,138,.65);
+    }
+    .mini-card h3{margin-top:0}
+    table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:18px; border:1px solid rgba(47,93,80,.16)}
+    th,td{padding:15px; text-align:left; vertical-align:top; border-bottom:1px solid rgba(47,93,80,.12)}
+    th{background:rgba(47,93,80,.12); color:#1f4038}
+    tr:last-child td{border-bottom:0}
+    .path{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin-top:18px;
+    }
+    .step{
+      padding:12px 14px;
+      background:#eef4f1;
+      border:1px solid rgba(47,93,80,.18);
+      border-radius:15px;
+      font-weight:800;
+      color:#2f5d50;
+    }
+    .arrow{color:var(--muted);font-weight:900}
+    .tasks{display:grid; gap:18px}
+    .task-card{padding:22px; box-shadow:none; background:#fffaf1}
+    .answers{display:grid; gap:10px; margin-top:12px}
+    .option{
+      width:100%; text-align:left;
+      border:1px solid rgba(47,93,80,.18);
+      background:#fff7e8;
+      color:#27231c;
+      box-shadow:none;
+      font-weight:700;
+    }
+    .option:hover{background:#fff0d4;color:#27231c}
+    .option.correct{background:var(--ok); border-color:#5aa77c; color:#18452f}
+    .option.wrong{background:var(--bad); border-color:#d9867c; color:#7a281f}
+    .feedback{min-height:28px; margin-top:12px; font-weight:800}
+    .select-row{display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:center; margin:10px 0}
+    select, textarea, input{
+      width:100%; border:1px solid rgba(47,93,80,.25); border-radius:14px; padding:12px; font-size:15px; background:white; color:#27231c;
+    }
+    textarea{min-height:92px; resize:vertical}
+    .checkline{display:flex; gap:10px; align-items:flex-start; padding:9px 0}
+    .checkline input{width:auto; margin-top:5px}
+    .small{font-size:14px;color:var(--muted)}
+    .result-box{
+      display:none;
+      margin-top:18px;
+      padding:18px;
+      border-radius:18px;
+      background:#eef4f1;
+      border:1px solid rgba(47,93,80,.2);
+    }
+    .footer-note{text-align:center;color:var(--muted);font-size:14px;margin-top:30px}
+    @media(max-width:820px){
+      .hero-card,.grid{grid-template-columns:1fr}
+      .hero{align-items:flex-start; min-height:auto; padding-top:20px; padding-bottom:120px}
+      .quick-box{min-height:auto}
+      .concept-word strong{font-size:38px}
+      section{padding:22px}
+      .select-row{grid-template-columns:1fr}
+      nav a{margin:0 7px}
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="mountains" aria-hidden="true">
+      <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#7f9aad" opacity="0.35" d="M0,230 L190,120 L310,230 L470,85 L640,225 L800,90 L960,220 L1130,105 L1440,240 L1440,320 L0,320Z"></path>
+        <path fill="#2f5d50" opacity="0.23" d="M0,265 L260,150 L390,255 L560,145 L710,265 L870,135 L1030,260 L1210,155 L1440,270 L1440,320 L0,320Z"></path>
+        <path fill="#d8bd8a" opacity="0.62" d="M0,285 C220,260 330,300 520,278 C760,250 900,292 1110,270 C1270,253 1370,280 1440,268 L1440,320 L0,320Z"></path>
+      </svg>
+    </div>
+    <div class="hero-card">
+      <div class="title-box">
+        <div class="badge">Электронный словарь концептов · 5 класс</div>
+        <h1>Свобода в рассказе «Кавказский пленник»</h1>
+        <p class="subtitle">Страница для урока литературы: не пересказать сюжет, а разобраться, как через поступки Жилина, Костылина и Дины раскрывается главное слово рассказа.</p>
+        <div class="meta">
+          <span class="pill">Л. Н. Толстой</span>
+          <span class="pill">анализ героя</span>
+          <span class="pill">плен — побег — свобода</span>
+          <span class="pill">курс: методика анализа</span>
+        </div>
+      </div>
+      <aside class="quick-box">
+        <div class="concept-word">
+          <small>ключевой концепт</small>
+          <strong>СВОБОДА</strong>
+          <p>Не только выбраться из плена, но и не потерять себя в трудной ситуации.</p>
+        </div>
+        <div>
+          <p><b>Для работы:</b> прочитайте блоки, выполните задания и сформулируйте вывод в конце страницы.</p>
+          <a class="start-btn" href="#meaning">Начать работу</a>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#meaning">Значение</a>
+    <a href="#levels">Смыслы</a>
+    <a href="#heroes">Герои</a>
+    <a href="#details">Детали</a>
+    <a href="#tasks">Задания</a>
+    <a href="#result">Вывод</a>
+  </nav>
+
+  <main>
+    <section id="meaning">
+      <h2>1. Что значит «свобода»?</h2>
+      <p><b>Свобода</b> — это возможность самому выбирать, как поступать, куда идти, что делать. В рассказе Толстого это слово сначала понимается очень просто: Жилин и Костылин попали в плен и хотят вернуться домой.</p>
+      <p>Но в тексте есть и другой смысл. Жилин находится в плену, однако не становится беспомощным: он наблюдает, думает, мастерит, готовит побег. Значит, свобода в рассказе связана не только с внешними обстоятельствами, но и с характером человека.</p>
+      <div class="note">Важно для анализа: Жилин лишён внешней свободы, но сохраняет внутреннюю — не сдаётся и действует.</div>
+    </section>
+
+    <section id="levels">
+      <h2>2. Как раскрывается концепт?</h2>
+      <div class="grid">
+        <div class="mini-card">
+          <h3>Свобода как отсутствие плена</h3>
+          <p>Герои хотят выйти из аула, уйти от татар и вернуться к своим. Это самый очевидный смысл.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Свобода как действие</h3>
+          <p>Жилин не ждёт, что всё решится само. Он осматривает местность, делает подкоп, ищет возможность бежать.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Свобода как внутренняя сила</h3>
+          <p>Даже в плену Жилин сохраняет выдержку. Он не паникует и не теряет достоинства.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Свобода как ответственность</h3>
+          <p>Жилин думает о матери и не хочет перекладывать на неё свою беду. Во время побега он не бросает Костылина.</p>
+        </div>
+      </div>
+      <div class="path" aria-label="Схема пути героя">
+        <span class="step">плен</span><span class="arrow">→</span>
+        <span class="step">наблюдение</span><span class="arrow">→</span>
+        <span class="step">подкоп</span><span class="arrow">→</span>
+        <span class="step">помощь Дины</span><span class="arrow">→</span>
+        <span class="step">побег</span>
+      </div>
+    </section>
+
+    <section id="heroes">
+      <h2>3. Герои и концепт «свобода»</h2>
+      <table>
+        <thead><tr><th>Герой</th><th>Как связан со свободой</th></tr></thead>
+        <tbody>
+          <tr><td><b>Жилин</b></td><td>Стремится к свободе активно: думает, наблюдает, готовит побег, не теряет самообладания.</td></tr>
+          <tr><td><b>Костылин</b></td><td>Тоже хочет освободиться, но чаще ждёт помощи и быстро сдаётся.</td></tr>
+          <tr><td><b>Дина</b></td><td>Помогает Жилину выбраться из ямы. Её поступок приближает героя к свободе.</td></tr>
+          <tr><td><b>Татары</b></td><td>Ограничивают свободу пленников, требуют выкуп, охраняют их.</td></tr>
+          <tr><td><b>Мать Жилина</b></td><td>Связана с темой дома. Ради неё Жилин не хочет просить большой выкуп.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="details">
+      <h2>4. Детали текста</h2>
+      <div class="grid">
+        <div class="mini-card"><h3>Письмо матери</h3><p>Жилин пишет так, чтобы письмо не дошло. Он не хочет, чтобы мать собирала выкуп.</p></div>
+        <div class="mini-card"><h3>Подкоп</h3><p>Герой не просто мечтает о свободе, а сам готовит путь к ней.</p></div>
+        <div class="mini-card"><h3>Дорога во время побега</h3><p>Свобода оказывается трудной: нужны силы, терпение и смелость.</p></div>
+        <div class="mini-card"><h3>Яма</h3><p>Жилина лишают почти любой свободы, но он всё равно не отказывается от надежды.</p></div>
+      </div>
+    </section>
+
+    <section id="tasks">
+      <h2>5. Интерактивные задания</h2>
+      <div class="tasks">
+        <div class="task-card">
+          <h3>Задание 1. Выбери значение</h3>
+          <p>Какое значение слова «свобода» лучше всего подходит к рассказу?</p>
+          <div class="answers" data-task="one">
+            <button class="option" data-correct="false">Возможность делать всё, что хочется, не думая о других.</button>
+            <button class="option" data-correct="true">Умение не сдаваться и искать выход даже в трудной ситуации.</button>
+            <button class="option" data-correct="false">Желание жить без правил.</button>
+            <button class="option" data-correct="false">Способность ждать, пока тебя спасут другие.</button>
+          </div>
+          <div class="feedback" id="fb-one"></div>
+        </div>
+
+        <div class="task-card">
+          <h3>Задание 2. Герой и поведение</h3>
+          <p>Подбери к каждому герою подходящее описание.</p>
+          <div class="select-row"><b>Жилин</b><select data-answer="Готовит побег"><option>Выбери ответ</option><option>Готовит побег</option><option>Надеется только на выкуп</option><option>Помогает выбраться из ямы</option><option>Держит пленников</option></select></div>
+          <div class="select-row"><b>Костылин</b><select data-answer="Надеется только на выкуп"><option>Выбери ответ</option><option>Готовит побег</option><option>Надеется только на выкуп</option><option>Помогает выбраться из ямы</option><option>Держит пленников</option></select></div>
+          <div class="select-row"><b>Дина</b><select data-answer="Помогает выбраться из ямы"><option>Выбери ответ</option><option>Готовит побег</option><option>Надеется только на выкуп</option><option>Помогает выбраться из ямы</option><option>Держит пленников</option></select></div>
+          <div class="select-row"><b>Татары</b><select data-answer="Держит пленников"><option>Выбери ответ</option><option>Готовит побег</option><option>Надеется только на выкуп</option><option>Помогает выбраться из ямы</option><option>Держит пленников</option></select></div>
+          <button onclick="checkSelects()">Проверить</button>
+          <div class="feedback" id="fb-selects"></div>
+        </div>
+
+        <div class="task-card">
+          <h3>Задание 3. Поступки Жилина</h3>
+          <p>Отметь поступки, которые показывают стремление Жилина к свободе.</p>
+          <label class="checkline"><input type="checkbox" data-right="true"> Делает подкоп.</label>
+          <label class="checkline"><input type="checkbox" data-right="true"> Пишет письмо так, чтобы оно не дошло.</label>
+          <label class="checkline"><input type="checkbox" data-right="true"> Наблюдает, куда уходят татары.</label>
+          <label class="checkline"><input type="checkbox" data-right="false"> Просит Костылина ничего не делать.</label>
+          <label class="checkline"><input type="checkbox" data-right="false"> Сразу смиряется с пленом.</label>
+          <button onclick="checkBoxes()">Проверить</button>
+          <div class="feedback" id="fb-checks"></div>
+          <p class="small">Подсказка: эпизод с куклами тоже важен, но не напрямую. Он помогает понять отношения Жилина и Дины.</p>
+        </div>
+
+        <div class="task-card">
+          <h3>Задание 4. Мини-вывод</h3>
+          <p>Закончи мысль своими словами:</p>
+          <p><b>Жилин остаётся внутренне свободным, потому что...</b></p>
+          <textarea id="studentText" placeholder="Напиши 2–3 предложения"></textarea>
+          <button onclick="showReflection()">Сохранить вывод на странице</button>
+          <div class="result-box" id="reflection"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="result">
+      <h2>6. Итог</h2>
+      <p>В рассказе «Кавказский пленник» свобода — это не только освобождение из плена. Толстой показывает, что многое зависит от самого человека: умеет ли он думать, действовать, сохранять достоинство и отвечать за свои поступки.</p>
+      <div class="note"><b>Главный вывод:</b> Жилин оказывается сильнее обстоятельств, потому что не ждёт спасения, а сам ищет путь к свободе.</div>
+    </section>
+
+    <p class="footer-note">Электронный образовательный ресурс для урока литературы в 5 классе · страница словаря концептов</p>
+  </main>
+
+  <script>
+    document.querySelectorAll('.answers').forEach(group=>{
+      group.querySelectorAll('.option').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          group.querySelectorAll('.option').forEach(b=>b.classList.remove('correct','wrong'));
+          const fb=document.getElementById('fb-'+group.dataset.task);
+          if(btn.dataset.correct==='true'){
+            btn.classList.add('correct');
+            fb.textContent='Верно. Здесь свобода связана не только с побегом, но и с характером Жилина.';
+            fb.style.color='#1f6a45';
+          }else{
+            btn.classList.add('wrong');
+            fb.textContent='Не совсем. Подумай: Толстой показывает не только желание быть свободным, но и умение действовать.';
+            fb.style.color='#9b352a';
+          }
+        });
+      });
+    });
+
+    function checkSelects(){
+      const selects=[...document.querySelectorAll('select[data-answer]')];
+      let ok=true;
+      selects.forEach(s=>{
+        const isRight=s.value===s.dataset.answer;
+        s.style.borderColor=isRight?'#5aa77c':'#d9867c';
+        s.style.background=isRight?'#dff1e7':'#fae2df';
+        if(!isRight) ok=false;
+      });
+      const fb=document.getElementById('fb-selects');
+      fb.textContent=ok?'Всё верно. Герои по-разному связаны с темой свободы.':'Есть неточности. Проверь, кто действует, кто ждёт, а кто помогает.';
+      fb.style.color=ok?'#1f6a45':'#9b352a';
+    }
+
+    function checkBoxes(){
+      const boxes=[...document.querySelectorAll('input[type="checkbox"][data-right]')];
+      let ok=true;
+      boxes.forEach(b=>{
+        const should=b.dataset.right==='true';
+        const good=b.checked===should;
+        b.parentElement.style.background=good?'#dff1e7':'#fae2df';
+        b.parentElement.style.borderRadius='12px';
+        b.parentElement.style.paddingLeft='10px';
+        if(!good) ok=false;
+      });
+      const fb=document.getElementById('fb-checks');
+      fb.textContent=ok?'Правильно. Эти поступки показывают, что Жилин не смиряется с пленом.':'Проверь ещё раз: нужны именно поступки, которые приближают героя к свободе.';
+      fb.style.color=ok?'#1f6a45':'#9b352a';
+    }
+
+    function showReflection(){
+      const text=document.getElementById('studentText').value.trim();
+      const box=document.getElementById('reflection');
+      box.style.display='block';
+      if(text.length<20){
+        box.innerHTML='<b>Попробуй подробнее.</b><br>Нужно написать хотя бы 2 предложения: что делает Жилин и почему это говорит о его внутренней свободе.';
+      }else{
+        box.innerHTML='<b>Твой вывод:</b><br>'+text.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      }
+    }
+  </script>
+</body>
+</html>
